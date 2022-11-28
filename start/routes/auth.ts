@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /*
 |--------------------------------------------------------------------------
 | Routes
@@ -20,6 +21,8 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
-Route.get('/', 'PostsController.index')
+Route.group(() => {
+    Route.post('/', 'AuthController.store')
+    Route.delete('/', 'AuthController.destroy').middleware('auth')
+}).prefix('/auth')
 
-Route.resource('/posts', 'PostsController').apiOnly()
