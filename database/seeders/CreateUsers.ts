@@ -14,11 +14,13 @@ export default class CreateUsersSeeders extends BaseSeeder {
   public async run(): Promise<void> {
     await User.createMany([
       {
+        name: 'Admin',
         email: 'admin@dev.com',
         password: 'secret',
         role: 'admin',
       },
       {
+        name: 'Normal',
         email: 'normal@dev.com',
         password: 'secret',
         role: 'normal',
